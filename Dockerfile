@@ -5,8 +5,9 @@ FROM registry.cto.ai/official_images/node:2-12.13.1-stretch-slim
 
 WORKDIR /ops
 
-ADD package.json .
-RUN npm install
+RUN npm i fastify
+RUN npm i fastify-cli
+RUN npm i fastify-autoload
+RUN npm i fastify-plugin
 
-ADD . .
-RUN chown -R ops:9999 /ops /home/ops
+RUN chown -R ops /ops
