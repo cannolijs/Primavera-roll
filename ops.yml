@@ -2,7 +2,7 @@
 version: "1"
 services:
   # Unique identifier for your op (required)
-  - name: xmas:0.1.0
+  - name: casa-bt:0.1.0
     cname: ""
     # Determines whether this version of the op is visible to other people
     public: false
