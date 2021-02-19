@@ -10,7 +10,7 @@ async function main() {
 
   const server = http.createServer(requestListener)
   server.listen(8080, function () {
-    sdk.log('server started!')
+    sdk.log('EsseTeeVee')
   })
 }
 main()
