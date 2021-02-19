@@ -1,16 +1,17 @@
-const { sdk } = require('@cto.ai/sdk')
-const http = require('http')
+const fastify = require('fastify')({ logger: true })
 
-async function main() {
-  const requestListener = function (req, res) {
-    res.writeHead(200, { 'Content-Type': 'application/json' })
-    res.write('Hello World!!')
-    res.end()
+// Declare a route
+fastify.get('/', async (request, reply) => {
+  return { hello: 'king' }
+})
+
+// Run the server!
+const start = async () => {
+  try {
+    await fastify.listen(8080)
+  } catch (err) {
+    fastify.log.error(err)
+    process.exit(1)
   }
-
-  const server = http.createServer(requestListener)
-  server.listen(8080, function () {
-    sdk.log('EsseTeeVee')
-  })
 }
-main()
+start()
