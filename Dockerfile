@@ -7,6 +7,7 @@ WORKDIR /ops
 
 RUN npm i fastify
 RUN npm i fastify-autoload
+RUN npm i fastify-plugin
 ADD index.js index.js
 
 RUN chown -R ops /ops
