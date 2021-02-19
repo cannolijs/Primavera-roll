@@ -1,17 +1,14 @@
-const fastify = require('fastify')({ logger: true })
+const http = require('http');
 
-// Declare a route
-fastify.get('/', async (request, reply) => {
-  return { hello: 'king' }
-})
+const hostname = '0.0.0.0';
+const port = 8080;
 
-// Run the server!
-const start = async () => {
-  try {
-    await fastify.listen(8080)
-  } catch (err) {
-    fastify.log.error(err)
-    process.exit(1)
-  }
-}
-start()
+const server = http.createServer((req, res) => {
+  res.statusCode = 200;
+  res.setHeader('Content-Type', 'text/plain');
+  res.end('Hello World');
+});
+
+server.listen(port, hostname, () => {
+  console.log(`Server running at http://${hostname}:${port}/`);
+});
